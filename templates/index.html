@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Video Converter</title>
+    <title>DataFlair - Message Encode and Decode</title>
 </head>
 <body>
-    <h1>Video Converter</h1>
-
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
-
-    <form method="POST" action="/convert">
-        <input type="text" name="video_url" placeholder="Enter video URL">
-        <br>
-        <input type="submit" value="Convert">
+    <h1>ENCODE DECODE</h1>
+    <form action="/encode_decode" method="POST">
+        <label for="message">MESSAGE:</label><br>
+        <input type="text" id="message" name="message" required><br><br>
+        
+        <label for="private_key">KEY:</label><br>
+        <input type="text" id="private_key" name="private_key" required><br><br>
+        
+        <label for="mode">MODE (e-encode, d-decode):</label><br>
+        <input type="text" id="mode" name="mode" required><br><br>
+        
+        <input type="submit" value="RESULT">
     </form>
-
-    {% if converted_file %}
-        <a href="/download/{{ converted_file }}">Download Converted Video</a>
-    {% endif %}
 </body>
 </html>

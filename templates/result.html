@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataFlair - Message Encode and Decode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .result-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .result-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .go-back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <h1>ENCODE DECODE - RESULT</h1>
-    <label for="result">Result:</label><br>
-    <input type="text" id="result" name="result" value="{{ result }}" readonly><br><br>
-    <a href="/">Go Back</a>
+    <div class="result-container">
+        <label for="result" class="result-label">Result:</label>
+        <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
+        <a href="/" class="go-back-link">Go Back</a>
+    </div>
 </body>
 </html>

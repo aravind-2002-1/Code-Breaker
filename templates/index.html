@@ -54,10 +54,35 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
+        .credits {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .credits a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #0366d6;
+            color: #fff;
+            border-radius: 4px;
+        }
+
+        .credits a.github {
+            background-color: #333;
+        }
+
+        .credits a.github:hover,
+        .credits a.github:focus {
+            background-color: #555;
+        }
     </style>
 </head>
 <body>
-    <h1>ENCODE DECODE</h1>
+    <h1>CODE BREAKER</h1>
+    <p style="text-align: center; font-weight: bold;">An official Encode and Decode System</p>
     <div class="form-container">
         <form action="/encode_decode" method="POST">
             <div class="form-group">
@@ -84,6 +109,11 @@
             
             <input type="submit" value="RESULT" class="form-submit">
         </form>
+    </div>
+
+    <div class="credits">
+        <a href="#" class="credits-link">Credits</a>
+        <a href="https://github.com/your-username" class="credits-link github" target="_blank">GitHub</a>
     </div>
 </body>
 </html>

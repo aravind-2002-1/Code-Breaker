@@ -1,1 +1,2 @@
-# Code Breaker - Encode and Decode System
+# Code Breaker
+An Message Encode and Decode System.

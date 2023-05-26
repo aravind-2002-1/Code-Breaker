@@ -12,31 +12,38 @@ def encode_decode():
     key = request.form['private_key']
     message = request.form['message']
     mode = request.form['mode']
-    
+
     if mode == 'e':
-        result = encode(key, message)
+        result = Encode(key, message)
     elif mode == 'd':
-        result = decode(key, message)
+        result = Decode(key, message)
     else:
         result = 'Invalid Mode'
-    
+
     return render_template('result.html', result=result)
 
-def encode(key, message):
-    enc=[]
-    for i in range(len(message)):
-        key_c = key[i % len(key)]
-        enc.append(chr((ord(message[i]) + ord(key_c)) % 256))
-    
-    return base64.urlsafe_b64encode("".join(enc).encode()).decode()
+# function to encode
+def Encode(key, message):
+    enc = []
+    for char in message:
+        key_c = key[len(enc) % len(key)]
+        encoded_char = chr(ord(char) + ord(key_c))
+        enc.append(encoded_char)
 
-def decode(key, message):
-    dec=[]
-    message = base64.urlsafe_b64decode(message).decode()
-    for i in range(len(message)):
-        key_c = key[i % len(key)]
-        dec.append(chr((256 + ord(message[i])- ord(key_c)) % 256))
-    
+    encoded_str = "".join(enc)
+    encoded_bytes = encoded_str.encode("utf-8")
+    encoded_base64 = base64.urlsafe_b64encode(encoded_bytes).decode("utf-8")
+    return encoded_base64
+
+# function to decode
+def Decode(key, message):
+    dec = []
+    decoded_base64 = base64.urlsafe_b64decode(message).decode("utf-8")
+    for char in decoded_base64:
+        key_c = key[len(dec) % len(key)]
+        decoded_char = chr(ord(char) - ord(key_c))
+        dec.append(decoded_char)
+
     return "".join(dec)
 
 if __name__ == '__main__':

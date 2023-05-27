@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataFlair - Message Encode and Decode</title>
+    <title>CodeBreaker - Message Encode and Decode System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,21 +36,26 @@
         }
 
         .go-back-link {
-            display: block;
+            display: inline-block;
             text-align: center;
             margin-top: 20px;
             font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: red;
+            color: white;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <h1>ENCODE DECODE - RESULT</h1>
+    <h1>Invalid Message</h1>
     <div class="result-container">
         {% if result %}
             <label for="result" class="result-label">Result:</label>
             <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
         {% else %}
-            <p>No Encryption Found! Encrypt the text First.</p>
+            <p>No Encryption Found! Encrypt the Message First.</p>
         {% endif %}
         <a href="/" class="go-back-link">Go Back</a>
     </div>

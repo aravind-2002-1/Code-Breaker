@@ -49,11 +49,33 @@
             margin-top: 10px;
         }
 
-        .go-back-link {
+        .go-back-button {
             display: block;
-            text-align: center;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
             margin-top: 20px;
-            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
         }
     </style>
     <script>
@@ -61,6 +83,13 @@
             var resultInput = document.getElementById("result");
             resultInput.select();
             document.execCommand("copy");
+            
+            var notification = document.getElementById("notification");
+            notification.style.display = "block";
+            
+            setTimeout(function() {
+                notification.style.display = "none";
+            }, 2000);
         }
     </script>
 </head>
@@ -70,7 +99,8 @@
         <label for="result" class="result-label">Result:</label>
         <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
         <button class="copy-button" onclick="copyText()">Copy</button>
-        <a href="/" class="go-back-link">Go Back</a>
+        <a href="/" class="go-back-button">Go Back</a>
     </div>
+    <div id="notification" class="notification">Text Copied</div>
 </body>
 </html>

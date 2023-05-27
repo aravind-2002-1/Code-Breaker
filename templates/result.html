@@ -35,9 +35,16 @@
             background-color: #f9f9f9;
         }
 
-        .copy-button {
-            display: block;
-            width: 100%;
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .copy-button,
+        .go-back-button {
+            flex-basis: 48%;
             padding: 10px;
             font-size: 16px;
             font-weight: bold;
@@ -46,23 +53,14 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-top: 10px;
         }
 
         .go-back-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            margin-top: 20px;
-            text-align: center;
-            text-decoration: none;
+            background-color: #2196F3;
+        }
+
+        .go-back-button:hover {
+            background-color: #0D47A1;
         }
 
         .notification {
@@ -98,8 +96,10 @@
     <div class="result-container">
         <label for="result" class="result-label">Result:</label>
         <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
-        <button class="copy-button" onclick="copyText()">Copy</button>
-        <a href="/" class="go-back-button">Go Back</a>
+        <div class="button-container">
+            <button class="copy-button" onclick="copyText()">Copy</button>
+            <a href="/" class="go-back-button">Go Back</a>
+        </div>
     </div>
     <div id="notification" class="notification">Text Copied</div>
 </body>

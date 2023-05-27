@@ -42,9 +42,9 @@
             margin-top: 10px;
         }
 
-        .copy-button,
-        .go-back-button {
-            flex-basis: 48%;
+        .button-container button,
+        .button-container a {
+            flex-grow: 1;
             padding: 10px;
             font-size: 16px;
             font-weight: bold;
@@ -55,11 +55,13 @@
             cursor: pointer;
         }
 
-        .go-back-button {
+        .button-container a {
             background-color: #2196F3;
+            text-align: center;
+            text-decoration: none;
         }
 
-        .go-back-button:hover {
+        .button-container a:hover {
             background-color: #0D47A1;
         }
 
@@ -81,10 +83,10 @@
             var resultInput = document.getElementById("result");
             resultInput.select();
             document.execCommand("copy");
-            
+
             var notification = document.getElementById("notification");
             notification.style.display = "block";
-            
+
             setTimeout(function() {
                 notification.style.display = "none";
             }, 2000);
@@ -97,7 +99,7 @@
         <label for="result" class="result-label">Result:</label>
         <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
         <div class="button-container">
-            <button class="copy-button" onclick="copyText()">Copy</button>
+            <button onclick="copyText()">Copy</button>
             <a href="/" class="go-back-button">Go Back</a>
         </div>
     </div>

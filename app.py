@@ -15,8 +15,10 @@ def encode_decode():
 
     if mode == 'e':
         result = Encode(key, message)
+        return render_template('result_encode.html', result=result)
     elif mode == 'd':
         result = Decode(key, message)
+        return render_template('result_decode.html', result=result)
     else:
         result = 'Invalid Mode'
 

@@ -17,12 +17,14 @@ def encode_decode():
         result = Encode(key, message)
         return render_template('result_encode.html', result=result)
     elif mode == 'd':
-        result = Decode(key, message)
-        return render_template('result_decode.html', result=result)
+        try:
+            result = Decode(key, message)
+        except base64.binascii.Error:
+            return render_template('error.html')
     else:
         result = 'Invalid Mode'
 
-    return render_template('result.html', result=result)
+    return render_template('error.html', result=result)
 
 # function to encode
 def Encode(key, message):

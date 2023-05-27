@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBreaker - Message Encode and Decode System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .result-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .result-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .result-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .button-container button,
+        .button-container a {
+            padding: 8px 12px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px; /* Added margin between buttons */
+        }
+
+        .button-container a {
+            background-color: #2196F3;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button-container a:hover {
+            background-color: #0D47A1;
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+    </style>
+    <script>
+        function copyText() {
+            var resultInput = document.getElementById("result");
+            resultInput.select();
+            document.execCommand("copy");
+
+            var notification = document.getElementById("notification");
+            notification.style.display = "block";
+
+            setTimeout(function() {
+                notification.style.display = "none";
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <h1>Message Decrypted!</h1>
+    <div class="result-container">
+        <label for="result" class="result-label">Result:</label>
+        <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
+        <div class="button-container">
+            <button onclick="copyText()">Copy</button>
+            <a href="/" class="go-back-button">Go Back</a>
+        </div>
+    </div>
+    <div id="notification" class="notification">Text Copied!</div>
+</body>
+</html>

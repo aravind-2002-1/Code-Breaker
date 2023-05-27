@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeBreaker - Message Encode and Decode System</title>
+    <title>DataFlair - Message Encode and Decode</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,7 +37,7 @@
 
         .button-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-top: 10px;
         }
@@ -52,6 +52,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin: 0 5px; /* Added margin between buttons */
         }
 
         .button-container a {
@@ -93,7 +94,7 @@
     </script>
 </head>
 <body>
-    <h1>Message Encrypted!</h1>
+    <h1>ENCODE DECODE - RESULT</h1>
     <div class="result-container">
         <label for="result" class="result-label">Result:</label>
         <input type="text" id="result" name="result" class="result-input" value="{{ result }}" readonly>
@@ -102,6 +103,6 @@
             <a href="/" class="go-back-button">Go Back</a>
         </div>
     </div>
-    <div id="notification" class="notification">Text Copied!</div>
+    <div id="notification" class="notification">Text Copied</div>
 </body>
 </html>

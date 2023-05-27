@@ -24,7 +24,7 @@ def encode_decode():
     else:
         result = 'Invalid Mode'
 
-    return render_template('error.html', result=result)
+    return render_template('result_decode.html', result=result)
 
 # function to encode
 def Encode(key, message):
